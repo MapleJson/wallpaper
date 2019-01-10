@@ -1,0 +1,62 @@
+{extend name="layouts/main" /}
+{block name="container"}
+<ul class="tags-ul">
+    {foreach $tags as $tag /}
+    <li>
+        <a href="{:url('360')}?tag={$tag.id}">{$tag.name}</a>
+    </li>
+    {/foreach}
+</ul>
+{foreach $images as $img}
+<div class="item">
+    <div class="card progressive">
+        <img data-original="{$img.url_thumb}" class="lazy s_pic">
+        <a class="mark"></a>
+        <div class="description">
+            <ul>
+                {notempty name="img.img_1600_900"}
+                <li>
+                    <a href="{:url('download')}?filename={$img.img_1600_900}"><span class="fa fa-download"></span>&nbsp;1600x900</a>
+                </li>
+                {/notempty}
+                {notempty name="img.img_1440_900"}
+                <li>
+                    <a href="{:url('download')}?filename={$img.img_1440_900}"><span class="fa fa-download"></span>&nbsp;1440x900</a>
+                </li>
+                {/notempty}
+                {notempty name="img.img_1366_768"}
+                <li>
+                    <a href="{:url('download')}?filename={$img.img_1366_768}"><span class="fa fa-download"></span>&nbsp;1366x768</a>
+                </li>
+                {/notempty}
+                {notempty name="img.img_1280_800"}
+                <li>
+                    <a href="{:url('download')}?filename={$img.img_1280_800}"><span class="fa fa-download"></span>&nbsp;1280x1024</a>
+                </li>
+                {/notempty}
+                {notempty name="img.img_1280_1024"}
+                <li>
+                    <a href="{:url('download')}?filename={$img.img_1280_1024}"><span class="fa fa-download"></span>&nbsp;1280x800</a>
+                </li>
+                {/notempty}
+                {notempty name="img.img_1024_768"}
+                <li>
+                    <a href="{:url('download')}?filename={$img.img_1024_768}"><span class="fa fa-download"></span>&nbsp;1024x768</a>
+                </li>
+                {/notempty}
+                {notempty name="img.url_mobile"}
+                <li>
+                    <a href="{:url('download')}?filename={$img.url_mobile}"><span class="fa fa-download"></span>&nbsp;手机版</a>
+                </li>
+                {/notempty}
+                {notempty name="img.url_thumb"}
+                <li>
+                    <a href="{:url('download')}?filename={$img.url_thumb}"><span class="fa fa-download"></span>&nbsp;原始尺寸</a>
+                </li>
+                {/notempty}
+            </ul>
+        </div>
+    </div>
+</div>
+{/foreach}
+{/block}

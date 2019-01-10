@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="baidu-site-verification" content="lOmvn6xFVw"/>
+    <meta name="keywords" content="必应壁纸,秋风阁,壁纸馆,秋风阁-壁纸馆,电脑壁纸,手机壁纸,高清壁纸,无水印,壁纸免费下载,风景壁纸,bing"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/iconfont.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>秋风阁-壁纸馆</title>
+</head>
+<body>
+<header>
+    <div class="container">
+        <a class="logo" href="/">
+            <span>秋风阁-壁纸馆</span>
+        </a>
+        <nav>
+            <ul class="menu">
+                <li>
+                    <a href="/">
+                        <p class="text">Bing壁纸</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('360')}">
+                        <p class="text">360壁纸</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('souGou')}">
+                        <p class="text">搜狗壁纸</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="holder"></div>
+<div class="mask"></div>
+<div class="container">
+    {block name="container"}{/block}
+</div>
+<div class="page">
+    {notempty name="pages"}
+    {$pages|raw}
+    {/notempty}
+</div>
+<div class="model" id="full-img">
+    <div>
+        <img src="" alt="">
+    </div>
+</div>
+<div class="copyright" style="margin-top:80px">
+    <p>Copyright © 2018
+        <a href="https://52zoe.com" target="_blank">秋风阁-科技馆</a>
+    </p>
+    <p>
+        <a href="http://www.miibeian.gov.cn/" target="_blank">鄂ICP备18019316号</a>
+    </p>
+</div>
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+<script>
+    $("img.lazy").lazyload({effect: "fadeIn"});
+    $(function () {
+        $('.container .card').on('click', '.mark', function () {
+            const src = $(this).prev().attr('data-original');
+            $('#full-img>div>img').attr('src', src);
+            $('#full-img').show();
+        });
+        $('#full-img').click(function () {
+            $(this).hide();
+        });
+    });
+</script>
+</body>
+</html>

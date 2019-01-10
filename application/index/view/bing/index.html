@@ -1,0 +1,27 @@
+{extend name="layouts/main" /}
+{block name="container"}
+{foreach $images as $img}
+<div class="item">
+    <div class="card progressive">
+        <img data-original="{$img.img}" class="lazy s_pic">
+        <a class="mark"></a>
+        <div class="description">
+            <i class="fa fa-globe"></i>
+            <h3 class="h3">{$img.title}</h3>
+            <p class="calendar">
+                <i class="fa fa-calendar-check-o"></i>
+                <em class="t">{$img.day}</em>
+            </p>
+            <p class="options">
+                <em class="t">{$img.summary}</em>
+            </p>
+            <ul>
+                <li>
+                    <a href="{:url('download')}?filename={$img.img}"><span class="fa fa-download"></span>&nbsp;原始尺寸</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{/foreach}
+{/block}

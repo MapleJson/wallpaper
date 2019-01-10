@@ -1,0 +1,20 @@
+{extend name="layouts/main" /}
+{block name="container"}
+{foreach $images as $img}
+<div class="item">
+    <div class="card progressive">
+        <img data-original="{$img.bigurl}" class="lazy s_pic">
+        <a class="mark"></a>
+        <div class="description">
+            <h3 class="h3">{$img.source}</h3>
+            <ul>
+                <li>
+                    <a href="{:url('download')}?filename={$img.bigurl}"><span
+                            class="fa fa-download"></span>&nbsp;原始尺寸</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{/foreach}
+{/block}
