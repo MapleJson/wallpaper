@@ -153,7 +153,7 @@ class Index
 
     public function souGou()
     {
-        $data = \Curl::instance()->get('https://www.sogou.com/home/data/skinlist')->body();;
+        $data = \Curl::instance()->get('https://www.sogou.com/home/data/skinlist')->body();
         $data = json_decode($data, true); //JSON进行解码
 
         $images = []; //新建一个数组，进行存储
