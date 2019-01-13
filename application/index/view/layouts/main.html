@@ -66,16 +66,44 @@
 <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
 <script>
+    function isMobile() {
+        var userAgentInfo = navigator.userAgent;
+
+        var mobileAgents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+
+        var mobile_flag = false;
+
+        //根据userAgent判断是否是手机
+        for (var v = 0; v < mobileAgents.length; v++) {
+            if (userAgentInfo.indexOf(mobileAgents[v]) > 0) {
+                mobile_flag = true;
+                break;
+            }
+        }
+
+        var screen_width = window.screen.width;
+        var screen_height = window.screen.height;
+
+        //根据屏幕分辨率判断是否是手机
+        if (screen_width < 500 && screen_height < 800) {
+            mobile_flag = true;
+        }
+
+        return mobile_flag;
+    }
+
     $("img.lazy").lazyload({effect: "fadeIn"});
     $(function () {
-        $('.container .card').on('click', '.mark', function () {
-            const src = $(this).prev().attr('data-original');
-            $('#full-img>div>img').attr('src', src);
-            $('#full-img').show();
-        });
-        $('#full-img').click(function () {
-            $(this).hide();
-        });
+        if (!isMobile()) {
+            $('.container .card').on('click', '.mark', function () {
+                const src = $(this).prev().attr('data-original');
+                $('#full-img>div>img').attr('src', src);
+                $('#full-img').show();
+            });
+            $('#full-img').click(function () {
+                $(this).hide();
+            });
+        }
     });
 </script>
 </body>

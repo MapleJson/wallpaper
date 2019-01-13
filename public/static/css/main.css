@@ -263,3 +263,19 @@
     cursor: zoom-out;
     width: 100%;
 }
+
+@media only screen and (max-width: 499px) {
+    .container .tags-ul {
+        height: 130px;
+    }
+}
+@media only screen and (min-width: 500px) and (max-width: 600px) {
+    .container .tags-ul {
+        height: 100px;
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 700px) {
+    .container .tags-ul {
+        height: 80px;
+    }
+}
