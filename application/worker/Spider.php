@@ -49,11 +49,10 @@ class Spider extends Server
                 'n'      => 1,
             ]
         ])->body();
-        $wap  = Curl::instance()
-            ->get('https://www.bing.com/cnhp/coverstory/?mkt=zh-CN')
-            ->body();
-
-        $wap    = json_decode($wap, true);
+//        $wap  = Curl::instance()
+//            ->get('https://www.bing.com/cnhp/coverstory/?mkt=zh-CN')
+//            ->body();
+//        $wap    = json_decode($wap, true);
         $imgUrl = 'https://cn.bing.com' . json_decode($data, true)['images'][0]['url'];
 
         $filename = date('Ymd') . '.jpg';
@@ -70,9 +69,9 @@ class Spider extends Server
                 /* 结束日期 */
                 'day'     => date('Ymd'),
                 /* 故事标题 */
-                'title'   => $wap['title'],
+                'title'   => '',
                 /* 内容 */
-                'summary' => $wap['para1'],
+                'summary' => '',
             ]);
         } catch (\Exception $e) {
             return false;
